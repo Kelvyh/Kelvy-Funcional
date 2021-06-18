@@ -31,7 +31,14 @@ struct Vector{
         //se this->data não for nulo, devolva a memória com delete
         //crie nova memória para this->data do tamanho de other.capacity
         //copie os dados de other.data para this->data
-        c
+        this->capacity = other.capacity;
+        this->size = other.size;
+        if(this->data != nullptr) {
+            delete [] this->data;
+            data = nullptr;
+        }
+        this->data = new int[other.capacity];
+        this->data = other.data;
     }
 
     //aqui você ensina seu vector a ser criado a partir de outro vector
